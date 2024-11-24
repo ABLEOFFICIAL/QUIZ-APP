@@ -109,6 +109,7 @@ body {
   }
 
   .quiz-btn {
+    display: block;
     background-color: #360564;
     color: #fff;
     font-weight: 600;
@@ -116,7 +117,6 @@ body {
     border: none;
     border-radius: 8px;
     width: 35%;
-    display: block;
     text-align: center;
     margin-inline: auto;
     margin-top: 10px;
