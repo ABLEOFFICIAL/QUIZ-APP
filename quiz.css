@@ -78,13 +78,13 @@ body {
     padding: 1.3rem;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   }
-  .questions {
+  #questions {
     margin-bottom: 1rem;
     color: #360564
 
   }
 
-  .answer-list {
+  #answer-list {
     list-style: none;
   }
   .answers {
@@ -108,7 +108,7 @@ body {
     background-color: rgb(197, 72, 72)
   }
 
-  .quiz-btn {
+  #quiz-btn {
     display: block;
     background-color: #360564;
     color: #fff;

@@ -22,175 +22,27 @@ const questions = [
   ];
   
 let quizContainer = document.getElementById("quiz-container");
-let quizButton = document.getElementById("quiz-btn");
-let submitButton = document.getElementById("submit-btn");
+let qst = document.getElementById('questions');
+let answerList = document.getElementById('answer-list');
+// let quizButton = document.getElementById("quiz-btn");
 
-function displayQuiz(questions){
-  let currentQuestion;
-    questions.forEach((qst, index) => {
-        currentQuestion = document.createElement('div')// create a question container
-        currentQuestion.classList.add('div-style');//add a class to the container
+//init values
+let currentQuestionIndex = 0;
+let score = 0;
 
-        let questionText = document.createElement('h2');//create a question text element
-        questionText.classList.add('questions')//add class to question text
-        questionText.innerHTML = `${index + 1}. ${qst.question}`;//add the question text value
-        currentQuestion.appendChild(questionText);
-
-        let answerList = document.createElement('ul');
-        answerList.classList.add('answer-list');
-        qst.answers.forEach(answer => {
-            let answerItem = document.createElement('li');
-        WIP    answerItem.classList.add('answers');
-            answerItem.innerHTML = answer;
-            answerList.appendChild(answerItem);
-        }) 
-        currentQuestion.appendChild(answerList);
-    })
-    quizContainer.appendChild(currentQuestion);
-    let quizBtn = document.createElement('button');
-    quizBtn.classList.add('quiz-btn');
-    quizBtn.innerHTML = "Next";
-    quizContainer.appendChild(quizBtn);
-
-    quizBtn.addEventListener('click', function(){
-
-    })
+let onLoad = () => {
+  score = 0;
+  currentQuestionIndex = 0
+  let quizButton = document.createElement('button');
+  quizButton.classList.add('quiz-btn');
+  quizButton.innerHTML = 'Next';
+  displayQuizQst();
 }
-displayQuiz(questions);
 
+let displayQuizQst = () => {
+  let currentQuestionIndex = currentQuestionIndex + 1;
+  let currentQuestion = questions[currentQuestionIndex];
+  qst.innerHTML = currentQuestionIndex +'. '+ currentQuestion;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function displayQuiz(){
-    let currentQuestion = questions[questionIndexNo];
-    questionIndexNo = questionIndexNo + 1;
-    let questionElement = document.createElement('h2');
-    questionElement.classList.add('questions');
-    questionElement.textContent = questionIndexNo + ". " + currentQuestion.question;
-    quizContainer.appendChild(questionElement);
-
-    let answerList = document.createElement('ul');
-    answerList.classList.add('answer-list');
-    currentQuestion.answers.forEach(answer => {
-        let answerElement = document.createElement('li');
-        answerElement.classList.add('answers');
-        answerElement.textContent = answer;
-        answerList.appendChild(answerElement);
-    })
-    quizContainer.appendChild(answerList);
-}*/
-
-// startQuiz();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// startQuiz(questions);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    questions.forEach((q, index) => {
-        // question
-        let quizQuestion = document.createElement('h2');// creating a question
-        quizQuestion.classList.add('questions');//add a class to question
-        quizQuestion.textContent = `${index + 1}. ${q.question}`;// add text to question
-        quizContainer.appendChild(quizQuestion);// add question to container
-
-        // answers
-        let answersContainer = document.createElement('ul');//creting a ul-list for answers
-        answersContainer.classList.add('answer-list');
-        q.answers.forEach((answer) => {
-            let answerList = document.createElement('li')// creating answe list
-            answerList.classList.add('answers');
-            answerList.textContent = answer;
-            answersContainer.appendChild(answerList);
-        })
-        quizContainer.appendChild(answersContainer);
-
-    })
-*/
+onLoad();
