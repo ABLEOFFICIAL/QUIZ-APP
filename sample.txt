@@ -69,33 +69,7 @@ displayQuiz(questions);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // startQuiz(questions);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -123,3 +97,27 @@ displayQuiz(questions);
 
     })
 */
+
+
+
+
+
+
+
+
+
+
+
+  let prevButton = document.querySelector(".prev-btn");
+  if (prevButton) prevButton.remove();
+  let question = questions[currentQuestionIndex];
+  let questionElement = document.createElement("p");
+  questionElement.textContent = question.question;
+  qst.appendChild(questionElement);
+  question.answers.forEach((answer) => {
+    let answerElement = document.createElement("li");
+    answerElement.textContent = answer;
+    answerElement.addEventListener("click", () => {
+      checkAnswer(answer, question.correctAnswer);
+    })
+  })

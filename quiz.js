@@ -36,6 +36,12 @@ let onLoad = () => {
 }
 
 let displayQuizQst = () => {
+  // Clear previous content
+  qst.innerHTML = "";
+  answerList.innerHTML = "";
+  let quizButton = document.querySelector(".quiz-btn");
+  if (quizButton) quizButton.remove(); 
+
   //to display the questions
   let qstNo = currentQuestionIndex + 1;
   let currentQuestion = questions[currentQuestionIndex];
@@ -59,29 +65,39 @@ let displayQuizQst = () => {
       let selectedAnswer = e.target.textContent;
       if (selectedAnswer === correctAnswer) {
         score++;
-      }else{
-        score = score;
       }
 
       let quizButton = document.createElement('button');
       quizButton.classList.add('quiz-btn');
       quizButton.innerHTML = 'Next';
       quizContainer.appendChild(quizButton);
+
+      //add eventListener to button
+       quizButton.addEventListener('click', () => {
+
+        //move to next question
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+          displayQuizQst();
+        }else{
+          displayResult();
+        }
+      })
     })
   })
 
-  //add eventListener to button
-  let quizButton = document.querySelector('.quiz-btn');
-  quizButton.addEventListener('click', () => {
+  // //add eventListener to button
+  // let quizButton = document.querySelector('.quiz-btn');
+  // quizButton.addEventListener('click', () => {
 
-    //move to next question
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      displayQuizQst();
-    }else{
-      displayResult();
-    }
-  })
+  //   //move to next question
+    // currentQuestionIndex++;
+    // if (currentQuestionIndex < questions.length) {
+    //   displayQuizQst();
+    // }else{
+    //   displayResult();
+  //   }
+  // })
   function displayResult() {
     //display result
     let result = document.createElement('div');
