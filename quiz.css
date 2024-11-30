@@ -72,14 +72,20 @@ body {
     width: 90%;
     max-width: 500px;
     border-radius: 10px;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-inline: auto;
     /* color: #fff; */
     padding: 1.3rem;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   }
+
+  .header {
+    padding: 0 0 1rem 0;
+    color: #360564;
+  }
+
   #questions {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     color: #360564
 
   }
@@ -95,6 +101,7 @@ body {
     margin-bottom: 10px;
     padding-left: 9px;
     cursor: pointer;
+    font-size: 12px;
   }
   .answers:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -108,7 +115,7 @@ body {
     background-color: rgb(197, 72, 72)
   }
 
-  #quiz-btn {
+  .quiz-btn {
     display: block;
     background-color: #360564;
     color: #fff;
@@ -123,20 +130,12 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
-  /* .submit-btn {
-    display: none;
-    background-color: #360564;
-    color: #fff;
-    font-weight: 600;
-    padding: .8rem .6rem;
-    border: none;
-    border-radius: 8px;
-    width: 35%;
-    text-align: center;
-    margin-inline: auto;
-    text-decoration: none;
-  } */
 
   .div-style {
     padding: .3rem;
+  }
+
+  .diasabled{
+    pointer-events: none;
+    opacity: 0.5;
   }
