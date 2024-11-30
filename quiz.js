@@ -39,6 +39,7 @@ let displayQuizQst = () => {
   // Clear previous content
   qst.innerHTML = "";
   answerList.innerHTML = "";
+
   let quizButton = document.querySelector(".quiz-btn");
   if (quizButton) quizButton.remove(); 
 
@@ -59,13 +60,22 @@ let displayQuizQst = () => {
 
     //select answers
     answerElement.addEventListener('click', (e) => {
-      e.target.style.backgroundColor = '#6dfa3e';
+  
+
+      
     //check if answer is correct
       let correctAnswer = currentQuestion.correctAnswer;
       let selectedAnswer = e.target.textContent;
       if (selectedAnswer === correctAnswer) {
+        e.target.style.backgroundColor = '#97fa8c';
         score++;
+      }else{
+        e.target.style.backgroundColor = '#fc4949';
       }
+      //dsable pointer after selecting answer
+      answerList.querySelectorAll('li').forEach(item => {
+        item.classList.add('disabled');
+      });
 
       let quizButton = document.createElement('button');
       quizButton.classList.add('quiz-btn');
@@ -86,24 +96,31 @@ let displayQuizQst = () => {
     })
   })
 
-  // //add eventListener to button
-  // let quizButton = document.querySelector('.quiz-btn');
-  // quizButton.addEventListener('click', () => {
 
-  //   //move to next question
-    // currentQuestionIndex++;
-    // if (currentQuestionIndex < questions.length) {
-    //   displayQuizQst();
-    // }else{
-    //   displayResult();
-  //   }
-  // })
   function displayResult() {
     //display result
+    quizContainer.textContent = '';
     let result = document.createElement('div');
-    result.classList.add('result');
-    result.innerHTML = `Your score is ${score} out of ${questions.length}`;
-    quizContainer.appendChild(result);
+    result.classList.add('result-container');
+    let resulthHeader = document.createElement('h4');
+    resulthHeader.classList.add('header');
+    resulthHeader.textContent = 'Text Result';
+    let resultText = document.createElement('p');
+    resultText.classList.add('result-text');
+    resultText.textContent = `Your final score is ${score} out of ${questions.length}`;
+    let restartBtn = document.createElement('button');
+    restartBtn.classList.add('quiz-btn');
+    restartBtn.textContent = 'Restart Quiz';
+    // result.innerHTML = `Your score is ${score} out of ${questions.length}`;
+    quizContainer.appendChild(resulthHeader);
+    quizContainer.appendChild(resultText);
+    quizContainer.appendChild(restartBtn);
+
+    //add event listener to restrt button
+    restartBtn.addEventListener('click', () => {
+      //reset quiz
+      onLoad();
+    })
   }
 }
 

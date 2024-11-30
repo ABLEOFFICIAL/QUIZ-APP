@@ -135,7 +135,6 @@ body {
     padding: .3rem;
   }
 
-  .diasabled{
+  .disabled{
     pointer-events: none;
-    opacity: 0.5;
   }
