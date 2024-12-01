@@ -102,6 +102,7 @@ body {
     padding-left: 9px;
     cursor: pointer;
     font-size: 12px;
+    list-style: none;
   }
   .answers:hover {
     background-color: rgba(0, 0, 0, 0.1);

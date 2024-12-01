@@ -37,6 +37,7 @@ let onLoad = () => {
 
 let displayQuizQst = () => {
   // Clear previous content
+  quizContainer.textContent = '';
   qst.innerHTML = "";
   answerList.innerHTML = "";
 
@@ -47,9 +48,7 @@ let displayQuizQst = () => {
   let qstNo = currentQuestionIndex + 1;
   let currentQuestion = questions[currentQuestionIndex];
   qst.innerHTML = qstNo +'. '+ currentQuestion.question;
-
-  //clearing previous output
-  answerList.innerHTML = '';
+  quizContainer.appendChild(qst);
 
   //displaying answers
   currentQuestion.answers.forEach(answer => {
@@ -57,6 +56,8 @@ let displayQuizQst = () => {
     answerElement.classList.add('answers');
     answerElement.textContent = answer;
     answerList.appendChild(answerElement);
+    quizContainer.appendChild(answerElement);
+
 
     //select answers
     answerElement.addEventListener('click', (e) => {
