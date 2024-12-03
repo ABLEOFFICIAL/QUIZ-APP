@@ -58,12 +58,8 @@ let displayQuizQst = () => {
     answerList.appendChild(answerElement);
     quizContainer.appendChild(answerElement);
 
-
-    //select answers
     answerElement.addEventListener('click', (e) => {
   
-
-      
     //check if answer is correct
       let correctAnswer = currentQuestion.correctAnswer;
       let selectedAnswer = e.target.textContent;
